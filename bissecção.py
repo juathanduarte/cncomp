@@ -23,7 +23,7 @@ def bisect(f, a, b, precision):
             a = m
     return m
     
-#Chamada do método da bissecção
+#Chamada do método da bissecção e printar a função com a raiz encontrada.
 root = bisect(f, a, b, precision)
 print(f"Raiz encontrada: {root}")
 
