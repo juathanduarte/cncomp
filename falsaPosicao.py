@@ -22,8 +22,6 @@ def falsePosition(f, a, b, precision):
             a = m
     return m
 
-# print("Resultado final: ", falsaPosicao(f, 0, 1, 0.0005))
-
 root = falsePosition(f, a, b, precision)
 print(f"Raiz encontrada: {root}")
 
