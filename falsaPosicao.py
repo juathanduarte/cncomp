@@ -22,6 +22,7 @@ def falsePosition(f, a, b, precision):
             a = m
     return m
 
+#Chamada do método da falsa posição e printar a função com a raiz encontrada.
 root = falsePosition(f, a, b, precision)
 print(f"Raiz encontrada: {root}")
 
