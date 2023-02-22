@@ -1,15 +1,18 @@
+import numpy as np
+import matplotlib.pyplot as plt
 from sympy import *
 
+#Definir a função newtonRaphson que recebe como parâmetros a função f, o x0 e a precisão.
+
 x = Symbol('x')
-# f = (x**5) - (10/9) * (x**3) + (5/21) * x
 f = (x**3) - (9*x) + 3
+x0 = 0.75
+precision = 0.01
+# f = (x**5) - (10/9) * (x**3) + (5/21) * x
 
 df = f.diff(x)
 f1 = lambdify(x, df)
 f = lambdify(x, f)
-
-iterations = []
-iterations1 = []
 
 def newtonRaphson(f, x0, precision):    
     if(abs(f(x0)) < precision):
@@ -21,11 +24,18 @@ def newtonRaphson(f, x0, precision):
     while abs(f(x0)) >= precision:
         x0 = k
         k = x0 - f(x0)/f1(x0)
-        
-        iterations.append(x0)
-        iterations1.append(f(x0))
-        print(iterations)
-        print(iterations1)
     return x0
 
-print(newtonRaphson(f, 0.75, 0.01))
+#Chamada do método de Newton Raphson e printar a função com a raiz encontrada.
+root = newtonRaphson(f, x0, precision)
+print(f"Raiz encontrada: {root}")
+
+#Plotar a função e a raiz encontrada
+x = np.linspace(-1, 1, 100)
+y = f(x)
+plt.plot(x, y)
+plt.plot(root, f(root), 'ro')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.title('Método de Newton Raphson')
+plt.show()
