@@ -51,7 +51,7 @@ plt.plot(arrayX, arrayY, 'ro')
 plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.axhline(y=0, color='red')
-plt.title('Método da Falsa Posição [a, b]')
+plt.title('Método da Falsa Posição [-10, 10]')
 
 plt.grid()
 plt.subplots_adjust(hspace=0.5)
