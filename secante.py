@@ -41,7 +41,7 @@ print(f"Raiz encontrada: {root}")
 
 #Plotar a função e a raiz encontrada.
 x = np.linspace(-10, 10, 100)
-y = f(x)
+y = [f(x) for x in x]
 plt.subplot(2, 1, 1)
 plt.plot(x, y, linestyle='-')
 plt.plot(arrayX, arrayY, 'ro')
@@ -51,7 +51,7 @@ plt.axhline(y=0, color='red')
 plt.title('Método da Secante [-10, 10]')
 
 x = np.linspace(-3, 3, 100)
-y = f(x)
+y = [f(x) for x in x]
 plt.subplot(2, 1, 2)
 plt.plot(x, y, linestyle='-')
 plt.plot(arrayX, arrayY, 'ro')
