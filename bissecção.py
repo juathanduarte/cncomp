@@ -54,6 +54,7 @@ plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.axhline(y=0, color='red')
 plt.title('Método da Bissecção [-3, +3]')
+
 plt.grid()
 plt.subplots_adjust(hspace=0.5)
 plt.show()
