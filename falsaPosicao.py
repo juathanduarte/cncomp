@@ -7,6 +7,9 @@ f = lambda x: x**3 - 9*x + 5
 a, b = 0, 1
 precision = 0.0005
 
+arrayX = []
+arrayY = []
+
 def falsePosition(f, a, b, precision):
     if f(a) * f(b) >= 0:
         print("Falsa posição falhou")
@@ -20,6 +23,9 @@ def falsePosition(f, a, b, precision):
             b = m
         else:
             a = m
+            
+        arrayX.append(m)
+        arrayY.append(f(m))
     return m
 
 #Chamada do método da falsa posição e printar a função com a raiz encontrada.
@@ -28,12 +34,25 @@ print(f"Raiz encontrada: {root}")
 
 #Plotar a função e a raiz encontrada
 x = np.linspace(a, b, 100)
-y = f(x)
+y = [f(x) for x in x]
+plt.subplot(2, 1, 1)
 plt.plot(x, y, linestyle='-')
-plt.plot(root, f(root), 'ro')
+plt.plot(arrayX, arrayY, 'ro')
 plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.axhline(y=0, color='red')
-plt.title('Método da Falsa Posição')
+plt.title('Método da Falsa Posição [a, b]')
+
+x = np.linspace(-10, 10, 100)
+y = [f(x) for x in x]
+plt.subplot(2, 1, 2)
+plt.plot(x, y, linestyle='-')
+plt.plot(arrayX, arrayY, 'ro')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.axhline(y=0, color='red')
+plt.title('Método da Falsa Posição [a, b]')
+
 plt.grid()
+plt.subplots_adjust(hspace=0.5)
 plt.show()
