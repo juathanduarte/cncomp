@@ -34,7 +34,7 @@ def secante(f, x0, x1, precision):
 root = secante(f, x0, x1, precision)
 print(f"Raiz encontrada: {root}")
 
-#Plotar a função e a raiz encontrada
+#Plotar a função e a raiz encontrada.
 x = np.linspace(-10, 10, 100)
 y = f(x)
 plt.plot(x, y, linestyle='-')
@@ -42,7 +42,6 @@ plt.plot(root, f(root), 'ro')
 plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.axhline(y=0, color='red')
-# plt.axvline(x=0, color='red')
 plt.title('Método da Secante')
 plt.grid()
 plt.show()
