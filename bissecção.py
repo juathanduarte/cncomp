@@ -6,6 +6,9 @@ f = lambda x: x**3 - 9*x + 5
 a, b = 0.5, 1
 precision = 0.01
 
+arrayX = []
+arrayY = []
+
 def bisect(f, a, b, precision):
     if f(a) * f(b) >= 0:
         print("Bisseção falhou")
@@ -21,20 +24,36 @@ def bisect(f, a, b, precision):
             b = m
         else:
             a = m
+            
+        arrayX.append(m)
+        arrayY.append(f(m))
     return m
     
 #Chamada do método da bissecção e printar a função com a raiz encontrada.
 root = bisect(f, a, b, precision)
 print(f"Raiz encontrada: {root}")
 
-#Plotar a função e a raiz encontrada
+#Plotar as funções e raízes encontradas, mudando o intervalo de plotagem.
 x = np.linspace(a, b, 100)
-y = f(x)
+y = [f(x) for x in x]
+plt.subplot(2, 1, 1)
 plt.plot(x, y, linestyle='-')
-plt.plot(root, f(root), 'ro')
+plt.plot(arrayX, arrayY, 'ro')
 plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.axhline(y=0, color='red')
-plt.title('Método da Bissecção')
+plt.title('Método da Bissecção [a, b]')
 plt.grid()
+
+x = np.linspace(-3, 3, 100)
+y = [f(x) for x in x]
+plt.subplot(2, 1, 2)
+plt.plot(x, y, linestyle='-')
+plt.plot(arrayX, arrayY, 'ro')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.axhline(y=0, color='red')
+plt.title('Método da Bissecção [-3, +3]')
+plt.grid()
+plt.subplots_adjust(hspace=0.5)
 plt.show()
