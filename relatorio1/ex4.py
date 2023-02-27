@@ -4,16 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sympy import *
 
-# x = Symbol('x')
-# fx = lambda x: 2 * x**4 + 4 * x**3 + 3 * x**2 - 10 * x - 15
-# df = fx.diff(x)
-# f1 = lambdify(x, df)
-# f = lambdify(x, fx)
-
-x0_NewtonRaphson = 3.0
-x0_Secante = 0.0
-x1_Secante = 1.0
-
 arrayX = []
 arrayY = []
 
@@ -27,7 +17,6 @@ def bisect(f, a, b, precision):
     while abs(f(m)) >= precision:
         m = (a + b) / 2
         
-        # print(f"m = {m}", "f(m) = ", f(m))
         if f(m) == 0:
             return m
         if f(a) * f(m) < 0:
