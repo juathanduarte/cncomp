@@ -1,10 +1,6 @@
-#A equação de Kepler, usada para determinar órbitas de satélites é dada por: M = x – E sen(x) . Dado que E = 0.2 e M = 0.5, obtenha a raiz da equação de Kepler usando o método da Bissecção. Considere a = 0.0, b = 2.0 e precisão = 10^-3
-
 import numpy as np
 import matplotlib.pyplot as plt
 from sympy import *
-
-# x = Symbol('x')
 
 m = lambda x: x - 0.2 * np.sin(x) - 0.5
 a = 0.0
@@ -34,9 +30,9 @@ def bisect(m, a, b, precision):
         arrayY.append(m(k))
     return k
 
-root = bisect(m, a, b, precision)
-print(f"Raiz encontrada: {root}")
+print(f"\n" + 30 * "-" + "\n" + "Falsa Posição: " + str(bisect(m, a, b, precision)) + "\n" + 30 * "-")
 
+plt.figure(figsize=(10,10))
 x = np.linspace(a, b, 100)
 y = [m(x) for x in x]
 plt.subplot(2, 1, 1)

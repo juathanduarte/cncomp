@@ -31,9 +31,9 @@ def newtonRaphson(f, x0, precision):
         arrayY.append(f(k))
     return x0
 
-root = newtonRaphson(f, x0, precision)
-print(f"Raiz encontrada: {root}")
+print(f"\n" + 30 * "-" + "\n" + "Falsa Posição: " + str(newtonRaphson(f, x0, precision)) + "\n" + 30 * "-")
 
+plt.figure(figsize=(10,10))
 x = np.linspace(-0.5,0.5, 100)
 y = [f(x) for x in x]
 plt.subplot(2, 1, 1)
