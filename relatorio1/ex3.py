@@ -22,7 +22,7 @@ arrayY = []
 
 def bisect(f, a, b, precision):
     if f(a) * f(b) >= 0:
-        print("Bisseção falhou")
+        print("\nBisseção | Falhou")
         return None
     
     counter = 0
@@ -45,11 +45,11 @@ def bisect(f, a, b, precision):
     print("Iterações: " + str(counter))
     return m
 
-# print(f"\n" + 30 * "-" + "\n" + "Bisseção: " + str(bisect(c_V1, a_V1, b_V1, precision_V1)) + "\n" + 30 * "-")
+print(f"" + 30 * "-" + "\n" + "Bissecção | Raiz aproximada: " + str(bisect(c_V1, a_V1, b_V1, precision_V1)) + "\n")
 
 def falsePosition(f, a, b, precision):
     if (f(a) * f(b) > 0):
-        print("Posição falsa falhou")
+        print("\nFalsa posição | Falhou")
         return None
     
     while abs(b - a) > precision:
@@ -61,7 +61,7 @@ def falsePosition(f, a, b, precision):
     
     return x
 
-# print(f"\n" + 30 * "-" + "\n" + "Posição Falsa: " + str(falsePosition(c_V1, a_V1, b_V1, precision_V1)) + "\n" + 30 * "-")
+print(f"" + 30 * "-" + "\n" + "Falsa posição | Raiz aproximada: " + str(falsePosition(c_V1, a_V1, b_V1, precision_V1)) + "\n")
 
 def newtonRaphson(f, x0, precision):    
     if(abs(f(x0)) < precision):
@@ -94,11 +94,6 @@ def secante(f, x0, x1, precision):
     
     while abs(f(x1)) >= precision or abs(f(x0)) >= precision:
         x2 = x1 - (f(x1) / (f(x1) - f(x0)) * (x1 - x0))
-
-        # if abs(f(x2)) < precision or abs(x2 - x1) < precision:
-        #     print
-            
-        #     # return x2
         
         x0 = x1
         x1 = x2      
@@ -110,4 +105,4 @@ def secante(f, x0, x1, precision):
     print("Secante | Iterações: " + str(counter))
     return x1
 
-print(f"" + 30 * "-" + "\n" + "Secante | Raiz aproximada: " + str(secante(f, x0, x1, precision)) + "\n" + 30 * "-")
+print(f"" + 30 * "-" + "\n" + "Secante | Raiz aproximada: " + str(secante(f, x0, x1, precision)) + "\n")
