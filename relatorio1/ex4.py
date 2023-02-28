@@ -187,7 +187,7 @@ df = f.diff(x)
 f1 = lambdify(x, df)
 f = lambdify(x, f)
 
-print(f"\n" + 30 * "-" + "\n" + "Newton Raphson: " + str(secante(f, x0, x1, precision)) + "\n" + 30 * "-")
+print(f"\n" + 30 * "-" + "\n" + "Secante: " + str(secante(f, x0, x1, precision)) + "\n" + 30 * "-")
 
 x = np.linspace(-10, 10, 100)
 y = [f(x) for x in x]
