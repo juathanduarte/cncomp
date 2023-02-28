@@ -10,9 +10,7 @@ precision = 10**(-3)
 arrayX = []
 arrayY = []
 
-
 def bisect(m, a, b, precision):
-    print("Método da Bissecção")
     if m(a) * m(b) >= 0:
         print("Bisseção falhou")
         return None
@@ -36,7 +34,6 @@ def bisect(m, a, b, precision):
         
     print("Iterações: " + str(counter))
     return k
-
 
 print(f"" + 30 * "-" + "\n" + "Raiz aproximada: " + str(bisect(m, a, b, precision)) + "\n" + 30 * "-")
 

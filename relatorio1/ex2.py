@@ -1,5 +1,3 @@
-#Em problemas de fluxo em tubulações, é frequente precisar resolver a equação:c5 D5 + c1 D + c0 = 0. Se c5 = 1000, c1 = −3 e c0 = 9.04, determine a raiz usando o método de Newton-Raphson. Considere x0 = -0.5 e e = 10-3
-
 import numpy as np
 import matplotlib.pyplot as plt
 from sympy import *
@@ -21,17 +19,22 @@ def newtonRaphson(f, x0, precision):
         print("Newton Raphson falhou")
         return None
     
+    counter = 0
     k = x0 - f(x0)/f1(x0)
     
     while abs(f(x0)) >= precision:
         x0 = k
         k = x0 - f(x0)/f1(x0)
         
+        counter += 1
+        
         arrayX.append(k)
         arrayY.append(f(k))
+        
+    print("Iterações: " + str(counter))
     return x0
-
-print(f"\n" + 30 * "-" + "\n" + "Falsa Posição: " + str(newtonRaphson(f, x0, precision)) + "\n" + 30 * "-")
+    
+print(f"" + 30 * "-" + "\n" + "Falsa Posição: " + str(newtonRaphson(f, x0, precision)) + "\n" + 30 * "-")
 
 plt.figure(figsize=(10,10))
 x = np.linspace(-0.5,0.5, 100)
@@ -56,5 +59,5 @@ plt.axhline(y=0, color='red')
 plt.title('Método de Newton Raphson [-3, 3]')
 plt.grid()
 
-plt.subplots_adjust(hspace=0.7)
+plt.subplots_adjust(hspace=0.2)
 plt.show()
