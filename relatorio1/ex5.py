@@ -9,14 +9,14 @@ arrayY = []
 
 def bisect(f, a, b, precision):
     if f(a) * f(b) >= 0:
-        print("Bisseção falhou")
+        print("\nBisseção | Falhou")
         return None
     
+    counter = 0
     m = (a + b) / 2
     
     while abs(f(m)) >= precision:
         m = (a + b) / 2
-        
         if f(m) == 0:
             return m
         if f(a) * f(m) < 0:
@@ -24,8 +24,12 @@ def bisect(f, a, b, precision):
         else:
             a = m
             
+        counter += 1
+            
         arrayX.append(m)
         arrayY.append(f(m))
+    
+    print("Iterações: " + str(counter))
     return m
 
 fx = lambda x: sin(x) * x + 4
@@ -168,9 +172,6 @@ def secante(f, x0, x1, precision):
     
     while abs(f(x1)) >= precision:
         x2 = x1 - (f(x1) / (f(x1) - f(x0)) * (x1 - x0))
-        
-        if abs(f(x2)) < precision:
-            return x2
         
         x0 = x1
         x1 = x2       

@@ -52,13 +52,20 @@ def falsePosition(f, a, b, precision):
         print("\nFalsa posição | Falhou")
         return None
     
+    counter = 0
+    
     while abs(b - a) > precision:
         x = (a * f(b) - b * f(a)) / (f(b) - f(a))
         if (f(a) * f(x) < 0):
             b = x
         else:
             a = x
+        
+        counter += 1
+        arrayX.append(x)
+        arrayY.append(f(x))
     
+    print("Falsa posição | Iterações: " + str(counter))
     return x
 
 print(f"" + 30 * "-" + "\n" + "Falsa posição | Raiz aproximada: " + str(falsePosition(c_V1, a_V1, b_V1, precision_V1)) + "\n")
