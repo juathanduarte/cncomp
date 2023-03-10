@@ -10,15 +10,16 @@ precision = 10**(-3)
 arrayX = []
 arrayY = []
 
-def showGraphic(f, titulo, x1_start, x1_end, x2_start, x2_end, arrayX, arrayY):
+def showGraphic(f, title, x1_start, x1_end, x2_start, x2_end, arrayX, arrayY):
     plt.figure(figsize=(10,10))
-    plt.suptitle(titulo, fontsize="16")
+    plt.suptitle(title, fontsize="16")
     
     plt.subplot(2, 1, 1)
     curva = np.linspace(x1_start, x1_end, 100)
     valores = [f(x) for x in curva]
     plt.plot(curva, valores, linestyle='-')
-    plt.plot(arrayX, arrayY, 'ro')
+    if (arrayX != None):
+        plt.plot(arrayX, arrayY, 'ro')
     plt.title(' X = [' + str(x1_start) + ', ' + str(x1_end) + ']')
     plt.xlabel('x')
     plt.ylabel('f(x)')
@@ -29,6 +30,8 @@ def showGraphic(f, titulo, x1_start, x1_end, x2_start, x2_end, arrayX, arrayY):
     curva = np.linspace(x2_start, x2_end, 100)
     valores = [f(x) for x in curva]
     plt.plot(curva, valores, linestyle='-')
+    if (arrayX != None):
+        plt.plot(arrayX, arrayY, 'ro')
     plt.plot(arrayX, arrayY, 'ro')
     plt.title(' X = [' + str(x2_start) + ', ' + str(x2_end) + ']')
     plt.xlabel('x')
@@ -66,33 +69,3 @@ def bisect(m, a, b, precision):
 print(f"" + 30 * "-" + "\n" + "Raiz aproximada: " + str(bisect(m, a, b, precision)) + "\n" + 30 * "-")
 
 showGraphic(m, "Método da Bissecção", a, b, -30, 30, arrayX, arrayY)
-
-# plt.figure(figsize=(10,10))
-
-# x = np.linspace(a, b, 100)
-# y = [m(x) for x in x]
-# plt.subplot(2, 1, 1)
-# plt.plot(x, y, linestyle='-')
-# plt.plot(arrayX, arrayY, 'ro')
-# plt.xlabel('x')
-# plt.ylabel('m(x)')
-# plt.axhline(y=0, color='red')
-# plt.title('Método da Bissecção [a (0.0), b (2.0)]')
-# plt.grid()            
-
-# x = np.linspace(-30, 30, 100)
-# y = [m(x) for x in x]
-# plt.subplot(2, 1, 2)
-# plt.plot(x, y, linestyle='-')
-# plt.plot(arrayX, arrayY, 'ro')
-# plt.xlabel('x')
-# plt.ylabel('m(x)')
-# plt.axhline(y=0, color='red')
-# plt.title('Método da Bissecção [-30, +30]')
-# plt.grid()
-
-# plt.subplots_adjust(hspace=0.2)
-# plt.show()
-    
-    
-    
