@@ -1,4 +1,4 @@
-def polinomioLagrange(m, x, y, z):
+def lagrange(m, x, y, z):
     pz = 0
     for i in range(m):
         c = 1
